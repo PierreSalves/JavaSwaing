@@ -23,11 +23,11 @@ public class Tabuleiro extends JFrame{
             tabuleiro.setToolTipText("Clique em um Campo e Digite X ou O");
             tabuleiro.setFont(new Font("Console", Font.BOLD, 70));
             tabuleiro.setVisible(true);
-            for(int i = 0; i <= 2; i++) {
+           /* for(int i = 0; i <= 2; i++) {
                 for(int d = 0; d<= 2; d++) {
                     tabuleiro.setValueAt("", i, d);
                 }
-            }
+            }*/
         TableCellRenderer celula = new PersonalizarCelula();
         for(int i = 0; i <= 2; i++) {
             TableColumn coluna = tabuleiro.getColumnModel().getColumn(i);
