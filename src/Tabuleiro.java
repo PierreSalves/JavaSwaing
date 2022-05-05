@@ -1,33 +1,19 @@
-/*
-import javax.swing.JTable;
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.table.DefaultTableModel;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-*/
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.*;
 
 public class Tabuleiro extends JFrame{
-
+    public JTable tabuleiro = new JTable(3,3);
     public Tabuleiro(){                                                 //Construct
         super("Jogo da Velha");
-        final JTable tabuleiro = new JTable(3,3);
+//        final JTable tabuleiro = new JTable(3,3);
             tabuleiro.setRowHeight(100);
             tabuleiro.setRowSelectionAllowed(false);
             tabuleiro.setToolTipText("Clique em um Campo e Digite X ou O");
             tabuleiro.setFont(new Font("Console", Font.BOLD, 70));
             tabuleiro.setVisible(true);
-           /* for(int i = 0; i <= 2; i++) {
-                for(int d = 0; d<= 2; d++) {
-                    tabuleiro.setValueAt("", i, d);
-                }
-            }*/
         TableCellRenderer celula = new PersonalizarCelula();
         for(int i = 0; i <= 2; i++) {
             TableColumn coluna = tabuleiro.getColumnModel().getColumn(i);
@@ -60,71 +46,34 @@ public class Tabuleiro extends JFrame{
         setSize(400,350);
         setVisible(true);
     }
-    class PersonalizarCelula extends DefaultTableCellRenderer{
-        public PersonalizarCelula(){                                    //Construct
-            setHorizontalAlignment(CENTER);
-        }
-    }
     public int Vencedor(){
-        TableModel tabuleiro = new TableModel() {
-            @Override
-            public int getRowCount() {
-                return 0;
+        //JTable tabuleiro = new JTable(3,3);
+            if(tabuleiro.getValueAt(0,0) == null) {
+                for (int i = 0; i <= 2; i++) {
+                    for (int d = 0; d <= 2; d++) {
+                        tabuleiro.setValueAt("", i, d);
+                    }
+                }
             }
-
-            @Override
-            public int getColumnCount() {
-                return 0;
-            }
-
-            @Override
-            public String getColumnName(int columnIndex) {
-                return null;
-            }
-
-            @Override
-            public Class<?> getColumnClass(int columnIndex) {
-                return null;
-            }
-
-            @Override
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return false;
-            }
-
-            @Override
-            public Object getValueAt(int rowIndex, int columnIndex) {
-                return null;
-            }
-
-            @Override
-            public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-
-            }
-
-            @Override
-            public void addTableModelListener(TableModelListener l) {
-
-            }
-
-            @Override
-            public void removeTableModelListener(TableModelListener l) {
-
-            }
-        };
-        Integer[] coluna0 = new Integer[3];
-        Integer[] coluna1 = new Integer[3];
-        Integer[] coluna2 = new Integer[3];
+        String[] coluna0 = new String[3];
+        String[] coluna1 = new String[3];
+        String[] coluna2 = new String[3];
         Integer[] linha0 = new Integer[3];
         Integer[] linha1 = new Integer[3];
         Integer[] linha2 = new Integer[3];
 
         for(int i = 0; i < 3; i++){
-            coluna0[i] = (Integer) tabuleiro.getValueAt(i,0);
-            coluna1[i] = (Integer) tabuleiro.getValueAt(i,1);
-            coluna2[i] = (Integer) tabuleiro.getValueAt(i,2);
+            coluna0[i] = (String) tabuleiro.getValueAt(i,0);
+            coluna1[i] = (String) tabuleiro.getValueAt(i,1);
+            coluna2[i] = (String) tabuleiro.getValueAt(i,2);
 
-            if((coluna0[0] + coluna0[1] + coluna0[2]  == 3)||
+            if((coluna0[0]== String.valueOf("x"))&&(coluna0[1]== String.valueOf("x"))&&
+                    (coluna0[2]== String.valueOf("x"))){
+                JOptionPane.showMessageDialog(null,"Jogador X Venceu");
+                return 1;
+            }
+
+            /*if((coluna0[0] + coluna0[1] + coluna0[2]  == 3)||
                     (coluna1[0] + coluna1[1] + coluna1[2]  == 3)||
                     (coluna2[0] + coluna2[1] + coluna2[2]  == 3)){
 
@@ -137,9 +86,9 @@ public class Tabuleiro extends JFrame{
 
                 JOptionPane.showMessageDialog(null,"Jogador 2 Venceu");
                 return -1;
-            }
+            }*/
 
-            linha0[i] = (Integer) tabuleiro.getValueAt(0,i);
+            /*linha0[i] = (Integer) tabuleiro.getValueAt(0,i);
             linha1[i] = (Integer) tabuleiro.getValueAt(1,i);
             linha2[i] = (Integer) tabuleiro.getValueAt(2,i);
             if((linha0[0] + linha0[1] + linha0[2]  == 3)||
@@ -168,8 +117,14 @@ public class Tabuleiro extends JFrame{
 
                 JOptionPane.showMessageDialog(null,"Jogador 2 Venceu");
                 return -1;
-            }
+            }*/
         }
         return 0;
+    }
+
+    class PersonalizarCelula extends DefaultTableCellRenderer{
+        public PersonalizarCelula(){                                    //Construct
+            setHorizontalAlignment(CENTER);
+        }
     }
 }
