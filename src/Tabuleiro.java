@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -22,18 +21,17 @@ public class Tabuleiro extends JFrame{
             btnReset.setToolTipText("Recomeça a Partida");
             btnReset.setVisible(true);
             btnReset.addActionListener(                                 //Event
-                new ActionListener() {
-                    public void actionPerformed(ActionEvent click) {    //Construct
-                        tabuleiro.clearSelection();
-                        JOptionPane.showMessageDialog(null,tabuleiro.getValueAt(0,0));
-
-                        for(int i = 0; i <= 2; i++) {
-                            for(int d = 0; d<= 2; d++) {
-                                tabuleiro.setValueAt("", i, d);
+                    new ActionListener() {
+                        public void actionPerformed(ActionEvent click) {    //Construct
+                            tabuleiro.clearSelection();
+                            for(int i = 0; i <= 2; i++) {
+                                for(int d = 0; d<= 2; d++) {
+                                    tabuleiro.setValueAt("", i, d);
+                                }
                             }
+
                         }
                     }
-                }
             );
 
         Container tela = getContentPane();
@@ -43,73 +41,121 @@ public class Tabuleiro extends JFrame{
             tela.add(btnReset);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
         setSize(400,350);
         setVisible(true);
     }
     public int Vencedor(){
-            /*if(tabuleiro.getValueAt(0,0) == null) {
+            if(tabuleiro.getValueAt(0,0) == null) {
                 for (int i = 0; i <= 2; i++) {
                     for (int d = 0; d <= 2; d++) {
                         tabuleiro.setValueAt("", i, d);
                     }
                 }
-            }*/
-        if((tabuleiro.getValueAt(0,0) == String.valueOf('x'))&&
-                (tabuleiro.getValueAt(1,0) == String.valueOf('x'))&&
-                    (tabuleiro.getValueAt(2,0) == String.valueOf('x'))){
+            }
+        if((tabuleiro.getValueAt(0,0).equals("x"))&&                            //VERIFICA COLUNAS
+                (tabuleiro.getValueAt(1,0).equals("x"))&&
+                    (tabuleiro.getValueAt(2,0).equals("x"))){
             JOptionPane.showMessageDialog(null,"Jogador X Venceu");
             return 1;
         }
+        if((tabuleiro.getValueAt(0,1).equals("x"))&&
+                (tabuleiro.getValueAt(1,1).equals("x"))&&
+                    (tabuleiro.getValueAt(2,1).equals("x"))){
+            JOptionPane.showMessageDialog(null,"Jogador X Venceu");
+            return 1;
+        }
+        if((tabuleiro.getValueAt(0,2).equals("x"))&&
+                (tabuleiro.getValueAt(1,2).equals("x"))&&
+                    (tabuleiro.getValueAt(2,3).equals("x"))){
+            JOptionPane.showMessageDialog(null,"Jogador X Venceu");
+            return 1;
+        }
+        if((tabuleiro.getValueAt(0,0).equals("o"))&&
+                (tabuleiro.getValueAt(1,0).equals("o"))&&
+                    (tabuleiro.getValueAt(2,0).equals("o"))){
+            JOptionPane.showMessageDialog(null,"Jogador O Venceu");
+            return 1;
+        }
+        if((tabuleiro.getValueAt(0,1).equals("o"))&&
+                (tabuleiro.getValueAt(1,1).equals("o"))&&
+                    (tabuleiro.getValueAt(2,1).equals("o"))){
+            JOptionPane.showMessageDialog(null,"Jogador O Venceu");
+            return 1;
+        }
+        if((tabuleiro.getValueAt(0,2).equals("o"))&&
+                (tabuleiro.getValueAt(1,2).equals("o"))&&
+                    (tabuleiro.getValueAt(2,3).equals("o"))){
+            JOptionPane.showMessageDialog(null,"Jogador O Venceu");
+            return 1;
+        }
+        //
+        //
+        //
+        if((tabuleiro.getValueAt(0,0).equals("x"))&&                            //VERIFICA LINHAS
+                (tabuleiro.getValueAt(0,1).equals("x"))&&
+                    (tabuleiro.getValueAt(0,2).equals("x"))){
+            JOptionPane.showMessageDialog(null,"Jogador X Venceu");
+            return 1;
+        }
+        if((tabuleiro.getValueAt(1,0).equals("x"))&&
+                (tabuleiro.getValueAt(1,1).equals("x"))&&
+                    (tabuleiro.getValueAt(1,2).equals("x"))){
+            JOptionPane.showMessageDialog(null,"Jogador X Venceu");
+            return 1;
+        }
+        if((tabuleiro.getValueAt(2,0).equals("x"))&&
+                (tabuleiro.getValueAt(2,1).equals("x"))&&
+                    (tabuleiro.getValueAt(2,2).equals("x"))){
+            JOptionPane.showMessageDialog(null,"Jogador X Venceu");
+            return 1;
+        }
+        if((tabuleiro.getValueAt(0,0).equals("o"))&&
+                (tabuleiro.getValueAt(0,1).equals("o"))&&
+                    (tabuleiro.getValueAt(0,2).equals("o"))){
+            JOptionPane.showMessageDialog(null,"Jogador O Venceu");
+            return 1;
+        }
+        if((tabuleiro.getValueAt(1,0).equals("o"))&&
+                (tabuleiro.getValueAt(1,1).equals("o"))&&
+                    (tabuleiro.getValueAt(1,2).equals("o"))){
+            JOptionPane.showMessageDialog(null,"Jogador O Venceu");
+            return 1;
+        }
+        if((tabuleiro.getValueAt(2,0).equals("o"))&&
+                (tabuleiro.getValueAt(2,1).equals("o"))&&
+                    (tabuleiro.getValueAt(2,2).equals("o"))){
+            JOptionPane.showMessageDialog(null,"Jogador O Venceu");
+            return 1;
+        }
+        //
+        //
+        //
+        if((tabuleiro.getValueAt(0,0).equals("x"))&&                            //VERIFICA DIAGONAIS
+                (tabuleiro.getValueAt(1,1).equals("x"))&&
+                    (tabuleiro.getValueAt(2,2).equals("x"))){
+            JOptionPane.showMessageDialog(null,"Jogador X Venceu");
+            return 1;
+        }
+        if((tabuleiro.getValueAt(2,0).equals("x"))&&
+                (tabuleiro.getValueAt(1,1).equals("x"))&&
+                    (tabuleiro.getValueAt(0,2).equals("x"))){
+            JOptionPane.showMessageDialog(null,"Jogador X Venceu");
+            return 1;
+        }
+        if((tabuleiro.getValueAt(0,0).equals("o"))&&
+                (tabuleiro.getValueAt(1,1).equals("o"))&&
+                    (tabuleiro.getValueAt(2,2).equals("o"))){
+            JOptionPane.showMessageDialog(null,"Jogador O Venceu");
+            return 1;
+        }
+        if((tabuleiro.getValueAt(2,0).equals("o"))&&
+                (tabuleiro.getValueAt(1,1).equals("o"))&&
+                    (tabuleiro.getValueAt(0,2).equals("o"))){
+            JOptionPane.showMessageDialog(null,"Jogador O Venceu");
+            return 1;
+        }
 
-  /*      for(int i = 0; i < 3; i++){
-
-
-            if((coluna0[0] + coluna0[1] + coluna0[2]  == 3)||
-                    (coluna1[0] + coluna1[1] + coluna1[2]  == 3)||
-                    (coluna2[0] + coluna2[1] + coluna2[2]  == 3)){
-
-                JOptionPane.showMessageDialog(null,"Jogador 1 Venceu");
-                return 1;
-            }
-            if((coluna0[0] + coluna0[1] + coluna0[2]  == -3)||
-                    (coluna1[0] + coluna1[1] + coluna1[2]  == -3)||
-                    (coluna2[0] + coluna2[1] + coluna2[2]  == -3)){
-
-                JOptionPane.showMessageDialog(null,"Jogador 2 Venceu");
-                return -1;
-            }
-
-            linha0[i] = (Integer) tabuleiro.getValueAt(0,i);
-            linha1[i] = (Integer) tabuleiro.getValueAt(1,i);
-            linha2[i] = (Integer) tabuleiro.getValueAt(2,i);
-            if((linha0[0] + linha0[1] + linha0[2]  == 3)||
-                    (linha1[0] + linha1[1] + linha1[2]  == 3)||
-                    (linha2[0] + linha2[1] + linha2[2]  == 3)){
-
-                JOptionPane.showMessageDialog(null,"Jogador 1 Venceu");
-                return 1;
-            }
-            if((linha0[0] + linha0[1] + linha0[2]  == -3)||
-                    (linha1[0] + linha1[1] + linha1[2]  == -3)||
-                    (linha2[0] + linha2[1] + linha2[2]  == -3)){
-
-                JOptionPane.showMessageDialog(null,"Jogador 2 Venceu");
-                return -1;
-            }
-
-            if((coluna0[0] + coluna1[1] + coluna2[2] == 3)||
-                    (coluna0[2] + coluna1[1] + coluna2[0] == 3)){
-
-                JOptionPane.showMessageDialog(null,"Jogador 1 Venceu");
-                return 1;
-            }
-            if((coluna0[0] + coluna1[1] + coluna2[2] == -3)||
-                    (coluna0[2] + coluna1[1] + coluna2[0] == -3)){
-
-                JOptionPane.showMessageDialog(null,"Jogador 2 Venceu");
-                return -1;
-            }
-        }*/
         return 0;
     }
 
