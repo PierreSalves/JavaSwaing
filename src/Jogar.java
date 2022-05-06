@@ -6,12 +6,13 @@ public class Jogar {
     public Jogar(){
         tabuleiro = new Tabuleiro();
 
-        while (jogando());
+        while (jogando()==true);
     }
     public boolean jogando(){
         if(tabuleiro.Vencedor() == 0){
             return true;
         }else return false;
+
     }
 
 }
