@@ -1,18 +1,18 @@
-import javax.swing.*;
+
 
 public class Jogar {
-    private Tabuleiro tabuleiro;
+    private final Tabuleiro tabuleiro;
 
     public Jogar(){
         tabuleiro = new Tabuleiro();
 
-        while (jogando()==true);
+        while (jogando());
     }
     public boolean jogando(){
         if(tabuleiro.Vencedor() == 0){
             return true;
-        }else return false;
-
+        }
+        return tabuleiro.recomecar;
     }
 
 }
