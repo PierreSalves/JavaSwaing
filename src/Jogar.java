@@ -1,5 +1,3 @@
-
-
 public class Jogar {
     private final Tabuleiro tabuleiro;
 
@@ -12,7 +10,6 @@ public class Jogar {
         if(tabuleiro.Vencedor() == 0){
             return true;
         }
-        return tabuleiro.recomecar;
+        return false;
     }
-
 }
