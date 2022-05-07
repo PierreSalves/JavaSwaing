@@ -1,9 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.table.*;
-
 public class Tabuleiro extends JFrame{
-    JogoDaVelha jogoDaVelha = new JogoDaVelha();
+    JogoDaVelha rodada = new JogoDaVelha();
     public JTable tabuleiro = new JTable(3,3);
     public Tabuleiro(){                                                 //Construct
         super("Jogo da Velha");
@@ -32,7 +31,7 @@ public class Tabuleiro extends JFrame{
                                 tabuleiro.setValueAt("", i, d);
                             }
                         }
-                        jogoDaVelha.Recomecar();
+                        rodada.Recomecar();
                     }
             );
         Container tela = getContentPane();
@@ -93,7 +92,7 @@ public class Tabuleiro extends JFrame{
         }
         //
         //VERIFICA LINHAS
-        if ((tabuleiro.getValueAt(0, 0).equals("x")) &&                            //VERIFICA LINHAS
+        if ((tabuleiro.getValueAt(0, 0).equals("x")) &&
                 (tabuleiro.getValueAt(0, 1).equals("x")) &&
                 (tabuleiro.getValueAt(0, 2).equals("x"))) {
             JOptionPane.showMessageDialog(null, "Jogador X Venceu");
