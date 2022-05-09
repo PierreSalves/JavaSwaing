@@ -31,7 +31,7 @@ public class Tabuleiro extends JFrame{
                                 tabuleiro.setValueAt("", i, d);
                             }
                         }
-                        rodada.Recomecar();
+                        /*rodada.main();*/
                     }
             );
         Container tela = getContentPane();
