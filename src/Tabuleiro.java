@@ -3,7 +3,7 @@ import java.awt.*;
 import javax.swing.table.*;
 public class Tabuleiro extends JFrame{
     public JTable tblTabuleiro = new JTable(3,3);
-    public Tabuleiro(){                                                 //Construct
+    public Tabuleiro(){
         super("Jogo da Velha");
             tblTabuleiro.setRowHeight(100);
             tblTabuleiro.setRowSelectionAllowed(false);
@@ -51,6 +51,7 @@ public class Tabuleiro extends JFrame{
                 }
             }
         }
+        //
         //VERIFICA COLUNAS
         if ((tblTabuleiro.getValueAt(0, 0).equals("x")) &&
                 (tblTabuleiro.getValueAt(1, 0).equals("x")) &&
@@ -155,7 +156,7 @@ public class Tabuleiro extends JFrame{
         return 0;
     }
     static class PersonalizarCelula extends DefaultTableCellRenderer{
-        public PersonalizarCelula(){                                    //Construct
+        public PersonalizarCelula(){
             setHorizontalAlignment(CENTER);
         }
     }
