@@ -1,8 +1,8 @@
 public class Jogar {
-    private final Tabuleiro tabuleiro;
+    private Tabuleiro tabuleiro;
     public Jogar(){
         tabuleiro = new Tabuleiro();
-        while (jogando());
+        while (jogando()) ;
     }
     public boolean jogando(){
         if (tabuleiro.Vencedor() == 0) return true;
