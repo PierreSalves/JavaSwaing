@@ -40,7 +40,7 @@ public class Tabuleiro extends JFrame{
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("velha.png")));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-        setSize(350,400);
+        setSize(300,400);
         setVisible(true);
     }
     public int Vencedor() {
